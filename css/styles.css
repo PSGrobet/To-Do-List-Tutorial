@@ -32,7 +32,7 @@ body {
   font-weight: 900;
   color: rgba(0, 0, 0, 0.1);
   letter-spacing: 1px;
-  margin: -0.2em 0 0.5em; }
+  margin: 0 0 0.5em; }
 
 .wrapper {
   display: -webkit-box;
@@ -41,7 +41,9 @@ body {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
-          flex-direction: row; }
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
   @media screen and (max-width: 480px) {
     .wrapper {
       width: 100%;
@@ -49,6 +51,16 @@ body {
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
               flex-direction: column; } }
+
+.wrapper-lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden; }
 
 .listas {
   margin: 0 0 30px 30px;
@@ -100,7 +112,13 @@ form {
   -webkit-transition: border-color 200ms;
   transition: border-color 200ms;
   border: 1px solid #e4e4e4;
-  border-radius: 10px; }
+  border-radius: 10px;
+  position: relative;
+  margin-top: 10px; }
+  @media screen and (max-width: 480px) {
+    .btn.delete {
+      width: 100%;
+      margin-top: 0; } }
 
 .btn.delete:hover {
   color: var(--clr-warning);
@@ -137,14 +155,17 @@ form {
 
 .nueva.lista {
   font-size: 1.2rem;
-  color: var(--clr-light); }
+  color: var(--clr-light);
+  overflow: hidden; }
 
 .nueva.tarea,
 .nueva.lista {
   padding: 0.25em; }
 
 .nueva.tarea {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  display: block;
+  overflow: hidden; }
 
 .active {
   font-weight: 700; }
@@ -152,7 +173,8 @@ form {
 .lista-simple {
   --spacer: 2rem;
   background: var(--clr-light);
-  color: var(--clr-dark); }
+  color: var(--clr-dark);
+  overflow: hidden; }
   @media screen and (max-width: 480px) {
     .lista-simple {
       width: 100%; } }
@@ -183,7 +205,11 @@ form {
 
 .lista-body {
   padding: var(--spacer);
-  position: relative; }
+  position: relative;
+  display: block; }
+
+.tasks {
+  overflow: hidden; }
 
 .crear-tarea .crear {
   color: var(--clr-primary); }
@@ -276,9 +302,24 @@ form {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  position: absolute;
+  position: relative;
   width: 100%;
   left: 0;
-  bottom: -35px;
-  color: var(--clr-light); }
+  bottom: 0px;
+  color: var(--clr-light);
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+  @media screen and (max-width: 480px) {
+    .pie-de-lista {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      width: 100%;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin-top: 10px; } }
 /*# sourceMappingURL=styles.css.map */

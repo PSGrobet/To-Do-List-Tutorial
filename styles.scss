@@ -34,17 +34,24 @@ body {
     font-weight: 900;
     color: rgba(0,0,0,0.1);
     letter-spacing: 1px;
-    margin: -0.2em 0 0.5em
+    margin: 0 0 0.5em
 }
 
 .wrapper {
     display: flex; 
     flex-direction: row;
+    justify-content: space-around; 
 
     @media screen and (max-width: 480px) {
         width: 100%;
         flex-direction: column;
     }
+}
+
+.wrapper-lista {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .listas {
@@ -103,6 +110,14 @@ form {
     transition: border-color 200ms;
     border:1px solid #e4e4e4;
     border-radius: 10px;
+    position: relative;
+    margin-top: 10px;
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        margin-top: 0;
+    }
+    
 }
 
 .btn.delete:hover {
@@ -134,6 +149,7 @@ form {
 .nueva.lista {
     font-size: 1.2rem;
     color: var(--clr-light);
+    overflow: hidden;
 }
 
 .nueva.tarea,
@@ -144,6 +160,8 @@ form {
 
 .nueva.tarea {
     margin-bottom: 0;
+    display: block;
+    overflow: hidden;
 }
 
 .active {
@@ -155,6 +173,7 @@ form {
 
     background: var(--clr-light);
     color: var(--clr-dark); 
+    overflow: hidden;
     
 
     @media screen and (max-width: 480px) {
@@ -187,6 +206,11 @@ form {
 .lista-body {
     padding: var(--spacer);
     position: relative;
+    display: block;
+}
+
+.tasks {
+    overflow: hidden;
 }
 
 .crear-tarea .crear {
@@ -271,10 +295,21 @@ form {
 .pie-de-lista {
     display: flex;
     justify-content: space-evenly; 
-    position: absolute;
+    position: relative;
     width: 100%;
     left: 0;
-    bottom: -35px;
+    bottom: 0px;
     color: var(--clr-light);
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px;
+
+        
+    }
 }
 
