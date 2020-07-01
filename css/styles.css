@@ -1,0 +1,250 @@
+:root {
+  --clr-primary: rgb(54,112,199);
+  --clr-light: #f4f4f4;
+  --clr-dark: #333;
+  --clr-warning: rgb(99,36,36); }
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+  display: -ms-grid;
+  display: grid;
+  grid: "header header header header" auto "...... listas active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr; }
+
+.titulo {
+  grid-area: header;
+  text-align: center;
+  font-size: calc(3vw + 2rem);
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  margin: -0.2em 0 0.5em; }
+
+.listas {
+  grid-area: listas; }
+
+.listas-de-tareas {
+  line-height: 1.7;
+  font-size: 1.2rem;
+  list-style: circle;
+  padding-left: 1.1em; }
+
+.nombre-de-lista {
+  cursor: pointer; }
+
+.nombre-de-lista:hover {
+  opacity: 0.7; }
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit; }
+
+.btn.crear {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: 0.25em;
+  -webkit-transition: opacity 150ms ease-in;
+  transition: opacity 150ms ease-in; }
+
+.btn.crear:hover {
+  opacity: 0.5; }
+
+.btn.delete {
+  opacity: 0.8;
+  font-size: 1rem;
+  -webkit-transition: color 200ms;
+  transition: color 200ms; }
+
+.btn.delete:hover {
+  color: var(--clr-warning); }
+
+.nueva {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentcolor;
+  font-size: inherit;
+  outline: none;
+  padding: 0.25em;
+  -webkit-transition: border-bottom 150ms ease-in;
+  transition: border-bottom 150ms ease-in;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2; }
+
+.nueva:focus {
+  border-bottom-width: 3px; }
+
+.nueva:focus::-webkit-input-placeholder {
+  opacity: 0.2; }
+
+.nueva:focus:-ms-input-placeholder {
+  opacity: 0.2; }
+
+.nueva:focus::-ms-input-placeholder {
+  opacity: 0.2; }
+
+.nueva:focus::placeholder {
+  opacity: 0.2; }
+
+.nueva.lista {
+  font-size: 1.2rem;
+  color: var(--clr-light); }
+
+.nueva.tarea,
+.nueva.lista {
+  padding: 0.25em; }
+
+.nueva.tarea {
+  margin-bottom: 0; }
+
+.active {
+  font-weight: 700; }
+
+.lista-simple {
+  --spacer: 2rem;
+  grid-area: active;
+  background: var(--clr-light);
+  color: var(--clr-dark); }
+
+.encabezado-de-lista {
+  background: #e4e4e4;
+  padding: var(--spacer);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.titulo-de-lista {
+  margin: 0;
+  margin: 0 1em 0 0; }
+
+.cuenta-tareas {
+  margin: 0;
+  font-size: 1rem; }
+
+.lista-body {
+  padding: var(--spacer);
+  position: relative; }
+
+.crear-tarea .crear {
+  color: var(--clr-primary); }
+
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute; }
+
+.tarea label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-bottom: 1.25em; }
+
+.tarea::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.5em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.11; }
+
+.tarea {
+  position: relative; }
+
+.checkbox-custom {
+  --size: .75em;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  margin-right: var(--size);
+  cursor: pointer;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out; }
+
+.tarea:hover .checkbox-custom,
+[type="checkbox"]:focus + label .checkbox-custom {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  color: var(--clr-primary); }
+
+[type="checkbox"]:checked + label .checkbox-custom {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  -webkit-box-shadow: inset 0 0 0 3px white;
+          box-shadow: inset 0 0 0 3px white; }
+
+[type="checkbox"]:checked + label {
+  opacity: 0.5; }
+
+.tarea label::after {
+  content: "";
+  position: absolute;
+  left: 1.5em;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  background: currentColor;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out; }
+
+[type="checkbox"]:checked + label::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left; }
+
+.pie-de-lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -35px;
+  color: var(--clr-light); }
+/*# sourceMappingURL=styles.css.map */
