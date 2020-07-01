@@ -18,12 +18,15 @@ body {
   font-size: 1.5rem;
   background-color: var(--clr-primary);
   color: var(--clr-light);
-  display: -ms-grid;
-  display: grid;
-  grid: "header header header header" auto "...... listas active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .titulo {
-  grid-area: header;
   text-align: center;
   font-size: calc(3vw + 2rem);
   font-weight: 900;
@@ -31,8 +34,25 @@ body {
   letter-spacing: 1px;
   margin: -0.2em 0 0.5em; }
 
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+  @media screen and (max-width: 480px) {
+    .wrapper {
+      width: 100%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
+
 .listas {
-  grid-area: listas; }
+  margin: 0 0 30px 30px;
+  max-width: 100%; }
 
 .listas-de-tareas {
   line-height: 1.7;
@@ -41,7 +61,10 @@ body {
   padding-left: 1.1em; }
 
 .nombre-de-lista {
-  cursor: pointer; }
+  cursor: pointer;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  letter-spacing: 2px; }
 
 .nombre-de-lista:hover {
   opacity: 0.7; }
@@ -71,11 +94,17 @@ form {
 .btn.delete {
   opacity: 0.8;
   font-size: 1rem;
+  padding: 5px 10px;
   -webkit-transition: color 200ms;
-  transition: color 200ms; }
+  transition: color 200ms;
+  -webkit-transition: border-color 200ms;
+  transition: border-color 200ms;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px; }
 
 .btn.delete:hover {
-  color: var(--clr-warning); }
+  color: var(--clr-warning);
+  border-color: var(--clr-warning); }
 
 .nueva {
   background: transparent;
@@ -122,9 +151,11 @@ form {
 
 .lista-simple {
   --spacer: 2rem;
-  grid-area: active;
   background: var(--clr-light);
   color: var(--clr-dark); }
+  @media screen and (max-width: 480px) {
+    .lista-simple {
+      width: 100%; } }
 
 .encabezado-de-lista {
   background: #e4e4e4;
@@ -141,7 +172,10 @@ form {
 
 .titulo-de-lista {
   margin: 0;
-  margin: 0 1em 0 0; }
+  margin: 0 1em 0 0;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  letter-spacing: 2px; }
 
 .cuenta-tareas {
   margin: 0;

@@ -20,15 +20,15 @@ body {
     background-color: var(--clr-primary);
     color: var(--clr-light);
 
-    display: grid; 
-    grid: 
-        "header header header header" auto
-        "...... listas active ......" auto /
-        1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: 480px) {
+
+    }
 }
 
 .titulo {
-    grid-area: header;
     text-align: center;
     font-size: calc(3vw + 2rem);
     font-weight: 900;
@@ -37,8 +37,19 @@ body {
     margin: -0.2em 0 0.5em
 }
 
+.wrapper {
+    display: flex; 
+    flex-direction: row;
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
 .listas {
-    grid-area: listas;
+    margin: 0 0 30px 30px;
+    max-width: 100%;
 }
 
 .listas-de-tareas {
@@ -49,7 +60,10 @@ body {
 }
 
 .nombre-de-lista {
-    cursor: pointer
+    cursor: pointer;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    letter-spacing: 2px;
 }
 
 .nombre-de-lista:hover {
@@ -84,11 +98,16 @@ form {
     //letter-spacing: 1px;
     opacity: 0.8;
     font-size: 1rem;
+    padding: 5px 10px;
     transition: color 200ms;
+    transition: border-color 200ms;
+    border:1px solid #e4e4e4;
+    border-radius: 10px;
 }
 
 .btn.delete:hover {
     color: var(--clr-warning);
+    border-color: var(--clr-warning)
 }
 
 .nueva {
@@ -134,9 +153,13 @@ form {
 .lista-simple {
     --spacer: 2rem;
 
-    grid-area: active;
     background: var(--clr-light);
     color: var(--clr-dark); 
+    
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+    }
 }
 
 .encabezado-de-lista {
@@ -145,11 +168,15 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 .titulo-de-lista {
     margin: 0;
     margin: 0 1em 0 0;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    letter-spacing: 2px;
 }
 
 .cuenta-tareas {
@@ -248,6 +275,6 @@ form {
     width: 100%;
     left: 0;
     bottom: -35px;
-    color: var(--clr-light)
+    color: var(--clr-light);
 }
 

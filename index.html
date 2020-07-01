@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script defer src="script.js"></script>
     
@@ -11,54 +12,55 @@
 <body>
     <h1 class="titulo">Cosas que tengo que hacer</h1>
 
-    <div class="listas">
-        <h2 class="titulo-de-listas"></h2>
-        <ul class="listas-de-tareas" data-lists></ul>
+    <div class="wrapper">
+        <div class="listas">
+            <h2 class="titulo-de-listas"></h2>
+            <ul class="listas-de-tareas" data-lists></ul>
 
-        <form action="" data-new-list-form>
-            <input 
-            type="text" 
-            class="nueva lista"
-            placeholder="nueva lista"
-            aria-label="nueva lista "
-            data-new-list-input
-            />
-            <button class="btn crear" 
-            aria-label="crea nueva lista">+</button>
+            <form action="" data-new-list-form>
+                <input 
+                type="text" 
+                class="nueva lista"
+                placeholder="nueva lista"
+                aria-label="nueva lista "
+                data-new-list-input
+                />
+                <button class="btn crear" 
+                aria-label="crea nueva lista">+</button>
 
-        </form>
-    </div>
-
-    <div class="lista-simple" data-list-display-container>
-        <div class="encabezado-de-lista">
-            <h2 class="titulo-de-lista" data-list-title></h2>
-            <p class="cuenta-tareas" data-list-count></p>
+            </form>
         </div>
-        <div class="lista-body">
-            <div class="tasks" data-tasks></div>
-            <div class="crear-tarea">
-                <form action="" data-new-task-form>
-                    <input 
-                    type="text" 
-                    class="nueva tarea"
-                    placeholder="nueva tarea"
-                    aria-label="nueva tarea"
-                    data-new-task-input
-                    />
-                    <button class="btn crear" 
-                    aria-label="crea nueva tarea">+</button>
-        
-                </form>
-            </div>
-            <div class="pie-de-lista">
-                <button class="btn delete" data-clear-complete-tasks-button>Borrar tareas completadas</button>
-                <button class="btn delete" data-delete-list-button>Borrar lista</button>
-            </div>
 
+        <div class="lista-simple" data-list-display-container>
+            <div class="encabezado-de-lista">
+                <h2 class="titulo-de-lista" data-list-title></h2>
+                <p class="cuenta-tareas" data-list-count></p>
+            </div>
+            <div class="lista-body">
+                <div class="tasks" data-tasks></div>
+                <div class="crear-tarea">
+                    <form action="" data-new-task-form>
+                        <input 
+                        type="text" 
+                        class="nueva tarea"
+                        placeholder="nueva tarea"
+                        aria-label="nueva tarea"
+                        data-new-task-input
+                        />
+                        <button class="btn crear" 
+                        aria-label="crea nueva tarea">+</button>
+            
+                    </form>
+                </div>
+                <div class="pie-de-lista">
+                    <button class="btn delete" data-clear-complete-tasks-button>Borrar tareas completadas</button>
+                    <button class="btn delete" data-delete-list-button>Borrar lista</button>
+                </div>
+
+            </div>
+            
         </div>
-        
     </div>
-
     <template id="task-template">
         <div class="tarea">
             <input 
